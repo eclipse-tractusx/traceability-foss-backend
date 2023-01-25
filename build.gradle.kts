@@ -77,7 +77,7 @@ val scribejavaVersion = "8.3.2"
 val findBugsVersion = "3.0.2"
 val restitoVersion = "1.1.0"
 // attention when upgrading: grizzly version is linked to restito version
-val grizzlyVersion = "2.3.25"
+val grizzlyVersion = "4.0.0"
 val jose4jVersion = "0.9.2"
 val restAssuredVersion = "5.3.0"
 val resilience4jVersion = "2.0.2"
