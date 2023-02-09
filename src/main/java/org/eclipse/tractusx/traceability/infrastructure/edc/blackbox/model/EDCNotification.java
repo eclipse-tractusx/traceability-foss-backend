@@ -118,4 +118,17 @@ public class EDCNotification {
 		this.classification = classification;
 	}
 
+	@Override
+	public String toString() {
+		return "EDCNotification{" +
+			"notificationId='" + notificationId + '\'' +
+			", senderBPN='" + senderBPN + '\'' +
+			", senderAddress='" + senderAddress + '\'' +
+			", recipientBPN='" + recipientBPN + '\'' +
+			", information='" + information + '\'' +
+			", listOfAffectedItems=" + listOfAffectedItems +
+			", status=" + status +
+			", classification=" + classification +
+			'}';
+	}
 }
