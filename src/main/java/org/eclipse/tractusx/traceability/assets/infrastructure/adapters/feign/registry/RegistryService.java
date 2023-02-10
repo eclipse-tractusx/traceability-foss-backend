@@ -98,7 +98,7 @@ public class RegistryService {
 
 		final List<String> assetIds;
 		try {
-			assetIds = registryApiClient.getAllAssetAdministrationShellIdsByAssetLink(filter);
+			assetIds = registryApiClient.getShells(filter);
 		} catch (FeignException e) {
 			endMetric(registryLookupMetric);
 
@@ -112,7 +112,7 @@ public class RegistryService {
 
 		final RegistryShellDescriptorResponse descriptors;
 		try {
-			descriptors = registryApiClient.postFetchAssetAdministrationShellDescriptor(assetIds);
+			descriptors = registryApiClient.fetchShellDescriptors(assetIds);
 		} catch (FeignException e) {
 			endMetric(registryLookupMetric);
 

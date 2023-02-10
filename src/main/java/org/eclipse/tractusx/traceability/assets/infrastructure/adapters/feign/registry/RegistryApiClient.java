@@ -37,9 +37,9 @@ import java.util.Map;
 public interface RegistryApiClient {
 
 	@RequestLine("GET /lookup/shells?assetIds={assetIds}")
-	List<String> getAllAssetAdministrationShellIdsByAssetLink(@SpringQueryMap Map<String, Object> queryParams);
+	List<String> getShells(@SpringQueryMap Map<String, Object> queryParams);
 
 	@RequestLine("POST /registry/shell-descriptors/fetch")
-	RegistryShellDescriptorResponse postFetchAssetAdministrationShellDescriptor(List<String> requestBody);
+	RegistryShellDescriptorResponse fetchShellDescriptors(List<String> requestBody);
 
 }
