@@ -1,4 +1,0 @@
-= Runtime view
-
-include::overall.adoc[leveloffset=+1]
-

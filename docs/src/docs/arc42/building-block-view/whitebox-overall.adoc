@@ -1,5 +1,0 @@
-= Whitebox overall system
-
-== Component diagram
-
-== Component description
