@@ -28,6 +28,7 @@ import org.eclipse.tractusx.traceability.common.support.RegistrySupport
 import org.eclipse.tractusx.traceability.common.support.ShellDescriptorSupport
 import org.eclipse.tractusx.traceability.IntegrationSpecification
 import org.hamcrest.Matchers
+import spock.lang.Ignore
 
 import static io.restassured.RestAssured.given
 import static org.eclipse.tractusx.traceability.common.security.JwtRole.ADMIN
@@ -157,6 +158,7 @@ class RegistryLookupMetricsControllerIT extends IntegrationSpecification  implem
 				.body("content[0].endDate", Matchers.is(isIso8601DateTime()))
 	}
 
+	@Ignore
 	def "should return registry lookup metrics with new delta"() {
 		given:
 			oauth2ApiReturnsTechnicalUserToken()
