@@ -40,11 +40,11 @@ Installation
 
 The Trace-X Helm Backend repository can be found here:
 
-<a href="https://catenax-ng.github.io/product-traceability-foss-backend/" class="bare">https://catenax-ng.github.io/product-traceability-foss-backend/</a>
+<a href="https://eclipse-tractusx.github.io/traceability-foss-backend/index.yaml" class="bare">https://eclipse-tractusx.github.io/traceability-foss-backend/index.yaml</a>
 
 The Trace-X Helm Frontend repository can be found here:
 
-<a href="https://catenax-ng.github.io/product-traceability-foss-frontend/" class="bare">https://catenax-ng.github.io/product-traceability-foss-frontend/</a>
+<a href="https://eclipse-tractusx.github.io/traceability-foss-frontend/index.yaml" class="bare">https://eclipse-tractusx.github.io/traceability-foss-frontend/index.yaml</a>
 
 Use the latest release of the "trace-x-helm" chart.
 It contains all required dependencies.
@@ -55,13 +55,13 @@ Supply the required configuration properties (see chapter [Configuration](#confi
 
 Add the Trace-X Backend Helm repository:
 
-    $ helm repo add traceability-foss-backend https://catenax-ng.github.io/product-traceability-foss-backend
-    $ helm repo add traceability-foss-frontend https://catenax-ng.github.io/product-traceability-foss-frontend
+    $ helm repo add traceability-foss-backend https://eclipse-tractusx.github.io/traceability-foss-backend
+    $ helm repo add traceability-foss-frontend https://eclipse-tractusx.github.io/traceability-foss-frontend
 
 Then install the Helm chart into your cluster:
 
-    $ helm install -f your-values.yaml traceability-foss-backend traceability-foss-backend/product-traceability-foss-backend
-    $ helm install -f your-values.yaml traceability-foss-frontend traceability-foss-frontend/product-traceability-foss-frontend
+    $ helm install -f your-values.yaml traceability-foss-backend traceability-foss-backend/traceability-foss-backend
+    $ helm install -f your-values.yaml traceability-foss-frontend traceability-foss-frontend/traceability-foss-frontend
 
 ### Deployment using ArgoCD
 
@@ -71,11 +71,11 @@ Create a new Helm chart and use Trace-X as a dependency.
       - name: traceability-foss-frontend
         alias: frontend
         version: x.x.x
-        repository: "https://catenax-ng.github.io/product-traceability-foss-frontend/"
+        repository: "https://eclipse-tractusx.github.io/traceability-foss-frontend/"
       - name: traceability-foss-backend
         alias: backend
         version: x.x.x
-        repository: "https://catenax-ng.github.io/product-traceability-foss-backend/"
+        repository: "https://eclipse-tractusx.github.io/traceability-foss-backend/"
 
 Then provide your configuration as the values.yaml of that chart.
 
@@ -93,7 +93,7 @@ The OAuth2, Vault configuration / secrets depend on your setup and might need to
 
 #### Helm configuration Trace-X Frontend (values.yaml)
 
-values.yaml <a href="https://github.com/catenax-ng/product-traceability-foss-frontend/blob/main/charts/product-traceability-foss-frontend/values.yaml" class="bare">https://github.com/catenax-ng/product-traceability-foss-frontend/blob/main/charts/product-traceability-foss-frontend/values.yaml</a>
+values.yaml <a href="https://github.com/eclipse-tractusx/traceability-foss-frontend/blob/main/charts/traceability-foss-frontend/values.yaml" class="bare">https://github.com/eclipse-tractusx/traceability-foss-frontend/blob/main/charts/traceability-foss-frontend/values.yaml</a>
 
 ##### Values explained
 
@@ -134,13 +134,6 @@ The OAuth2, Vault configuration / secrets depend on your setup and might need to
 
 #### Helm configuration Trace-X Backend (values.yaml)
 
-    ##############################
-    # Application Configuration  #
-    #############################
-
-    springprofile: <springprofile>
-
-    healthCheck:
       enabled: true #<healthCheck.enabled>
 
     traceability:
@@ -325,4 +318,4 @@ Troubleshooting
 
 Coming soon…​
 
-Last updated 2023-02-16 09:28:41 UTC
+Last updated 2023-02-21 14:22:39 UTC

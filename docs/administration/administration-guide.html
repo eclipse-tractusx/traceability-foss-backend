@@ -728,13 +728,13 @@ pre.rouge {
 <p>The Trace-X Helm Backend repository can be found here:</p>
 </div>
 <div class="paragraph">
-<p><a href="https://catenax-ng.github.io/product-traceability-foss-backend/" class="bare">https://catenax-ng.github.io/product-traceability-foss-backend/</a></p>
+<p><a href="https://eclipse-tractusx.github.io/traceability-foss-backend/index.yaml" class="bare">https://eclipse-tractusx.github.io/traceability-foss-backend/index.yaml</a></p>
 </div>
 <div class="paragraph">
 <p>The Trace-X Helm Frontend repository can be found here:</p>
 </div>
 <div class="paragraph">
-<p><a href="https://catenax-ng.github.io/product-traceability-foss-frontend/" class="bare">https://catenax-ng.github.io/product-traceability-foss-frontend/</a></p>
+<p><a href="https://eclipse-tractusx.github.io/traceability-foss-frontend/index.yaml" class="bare">https://eclipse-tractusx.github.io/traceability-foss-frontend/index.yaml</a></p>
 </div>
 <div class="paragraph">
 <p>Use the latest release of the "trace-x-helm" chart.
@@ -750,8 +750,8 @@ It contains all required dependencies.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ helm repo add traceability-foss-backend https://catenax-ng.github.io/product-traceability-foss-backend
-$ helm repo add traceability-foss-frontend https://catenax-ng.github.io/product-traceability-foss-frontend</pre>
+<pre>$ helm repo add traceability-foss-backend https://eclipse-tractusx.github.io/traceability-foss-backend
+$ helm repo add traceability-foss-frontend https://eclipse-tractusx.github.io/traceability-foss-frontend</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -759,8 +759,8 @@ $ helm repo add traceability-foss-frontend https://catenax-ng.github.io/product-
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ helm install -f your-values.yaml traceability-foss-backend traceability-foss-backend/product-traceability-foss-backend
-$ helm install -f your-values.yaml traceability-foss-frontend traceability-foss-frontend/product-traceability-foss-frontend</pre>
+<pre>$ helm install -f your-values.yaml traceability-foss-backend traceability-foss-backend/traceability-foss-backend
+$ helm install -f your-values.yaml traceability-foss-frontend traceability-foss-frontend/traceability-foss-frontend</pre>
 </div>
 </div>
 </div>
@@ -775,11 +775,11 @@ $ helm install -f your-values.yaml traceability-foss-frontend traceability-foss-
   <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">traceability-foss-frontend</span>
     <span class="na">alias</span><span class="pi">:</span> <span class="s">frontend</span>
     <span class="na">version</span><span class="pi">:</span> <span class="s">x.x.x</span>
-    <span class="na">repository</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://catenax-ng.github.io/product-traceability-foss-frontend/"</span>
+    <span class="na">repository</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://eclipse-tractusx.github.io/traceability-foss-frontend/"</span>
   <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">traceability-foss-backend</span>
     <span class="na">alias</span><span class="pi">:</span> <span class="s">backend</span>
     <span class="na">version</span><span class="pi">:</span> <span class="s">x.x.x</span>
-    <span class="na">repository</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://catenax-ng.github.io/product-traceability-foss-backend/"</span></code></pre>
+    <span class="na">repository</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://eclipse-tractusx.github.io/traceability-foss-backend/"</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -806,7 +806,7 @@ You can define the URLs as well as most of the secrets yourself.</p>
 <div class="sect3">
 <h4 id="_helm_configuration_trace_x_frontend_values_yaml">Helm configuration Trace-X Frontend (values.yaml)</h4>
 <div class="paragraph">
-<p>values.yaml <a href="https://github.com/catenax-ng/product-traceability-foss-frontend/blob/main/charts/product-traceability-foss-frontend/values.yaml" class="bare">https://github.com/catenax-ng/product-traceability-foss-frontend/blob/main/charts/product-traceability-foss-frontend/values.yaml</a></p>
+<p>values.yaml <a href="https://github.com/eclipse-tractusx/traceability-foss-frontend/blob/main/charts/traceability-foss-frontend/values.yaml" class="bare">https://github.com/eclipse-tractusx/traceability-foss-frontend/blob/main/charts/traceability-foss-frontend/values.yaml</a></p>
 </div>
 <div class="sect4">
 <h5 id="_values_explained">Values explained</h5>
@@ -868,14 +868,7 @@ You can define the URLs as well as most of the secrets yourself.</p>
 <h4 id="_helm_configuration_trace_x_backend_values_yaml">Helm configuration Trace-X Backend (values.yaml)</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="yaml"><span class="c1">##############################</span>
-<span class="c1"># Application Configuration  #</span>
-<span class="c1">#############################</span>
-
-<span class="na">springprofile</span><span class="pi">:</span> <span class="s">&lt;springprofile&gt;</span>
-
-<span class="na">healthCheck</span><span class="pi">:</span>
-  <span class="na">enabled</span><span class="pi">:</span> <span class="no">true</span> <span class="c1">#&lt;healthCheck.enabled&gt;</span>
+<pre class="rouge highlight"><code data-lang="yaml">  <span class="na">enabled</span><span class="pi">:</span> <span class="no">true</span> <span class="c1">#&lt;healthCheck.enabled&gt;</span>
 
 <span class="na">traceability</span><span class="pi">:</span>
   <span class="na">bpn</span><span class="pi">:</span> <span class="s">&lt;traceability.bpn&gt;</span>
@@ -1106,7 +1099,7 @@ and <a href="https://cloud.google.com/blog/products/containers-kubernetes/kubern
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-02-16 09:28:41 UTC
+Last updated 2023-02-21 14:22:39 UTC
 </div>
 </div>
 </body>
