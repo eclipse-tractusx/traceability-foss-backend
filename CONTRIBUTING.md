@@ -52,6 +52,22 @@ fulfills the DCO's requirement that you sign-off on your contributions.
 For more information, please see the Eclipse Committer Handbook:
 https://www.eclipse.org/projects/handbook/#resources-commit
 
+### Commit messages
+The commit messages have to match a pattern in the form of:
+``< type >(optional scope):[<Ticket_ID>] < description >``
+
+Example:
+``feat(users):[TRACEFOSS-XXX] Description``
+
+Detailed pattern can be found here: [commit-msg](./dev/commit-msg)
+
+#### How to use
+```shell
+cp dev/commit-msg .git/hooks/commit-msg && chmod 500 .git/hooks/commit-msg
+```
+
+For further information please see https://github.com/hazcod/semantic-commit-hook
+
 ## Contact
 
 Contact the project developers via the project's "dev" list.
