@@ -6,6 +6,7 @@ Table of Contents
 -   [System Overview](#system-overview)
 -   [Installation](#installation)
     -   [Deployment using Helm](#deployment-using-helm)
+    -   [Dependent values](#dependent-values)
     -   [Deployment using ArgoCD](#deployment-using-argocd)
 -   [Configuration](#configuration)
     -   [Frontend Configuration](#frontend-configuration)
@@ -62,6 +63,17 @@ Then install the Helm chart into your cluster:
 
     $ helm install -f your-values.yaml traceability-foss-backend traceability-foss-backend/traceability-foss-backend
     $ helm install -f your-values.yaml traceability-foss-frontend traceability-foss-frontend/traceability-foss-frontend
+
+### Dependent values
+
+Following values needs to match in order for application to start and have valid PostgreSQL connection:
+
+    datasource:
+        password: # database password
+
+    postgresql:
+        auth:
+            password: # database password
 
 ### Deployment using ArgoCD
 
@@ -318,4 +330,4 @@ Troubleshooting
 
 Coming soon…​
 
-Last updated 2023-02-22 14:34:08 UTC
+Last updated 2023-02-24 12:31:13 UTC

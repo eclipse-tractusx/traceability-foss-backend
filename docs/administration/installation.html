@@ -659,6 +659,7 @@ pre.rouge {
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#_deployment_using_helm">Deployment using Helm</a></li>
+<li><a href="#_dependent_values">Dependent values</a></li>
 <li><a href="#_deployment_using_argocd">Deployment using ArgoCD</a></li>
 </ul>
 </div>
@@ -711,6 +712,27 @@ $ helm install -f your-values.yaml traceability-foss-frontend traceability-foss-
 </div>
 </div>
 <div class="sect1">
+<h2 id="_dependent_values">Dependent values</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Following values needs to match in order for application to start and have valid PostgreSQL connection:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="yaml"><span class="na">datasource</span><span class="pi">:</span>
+    <span class="na">password</span><span class="pi">:</span> <span class="c1"># database password</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="yaml"><span class="na">postgresql</span><span class="pi">:</span>
+    <span class="na">auth</span><span class="pi">:</span>
+        <span class="na">password</span><span class="pi">:</span> <span class="c1"># database password</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_deployment_using_argocd">Deployment using ArgoCD</h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -740,7 +762,7 @@ $ helm install -f your-values.yaml traceability-foss-frontend traceability-foss-
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-02-22 14:34:08 UTC
+Last updated 2023-02-24 12:31:13 UTC
 </div>
 </div>
 </body>
