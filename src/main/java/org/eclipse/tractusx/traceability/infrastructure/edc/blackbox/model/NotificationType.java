@@ -21,9 +21,21 @@
 
 package org.eclipse.tractusx.traceability.infrastructure.edc.blackbox.model;
 
+import java.util.Arrays;
+import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
 public enum NotificationType {
 	QMINVESTIGATION("QM-Investigation"),
 	QMALERT("QM-Alert");
+
+	private static final Map<String, NotificationType> MAPPINGS;
+
+	static {
+		MAPPINGS = Arrays.stream(NotificationType.values())
+			.collect(Collectors.toMap(NotificationType::getValue, notificationType -> notificationType));
+	}
 
 	private final String value;
 
@@ -35,5 +47,7 @@ public enum NotificationType {
 		return value;
 	}
 
-
+	public static Optional<NotificationType> fromValue(String value) {
+		return Optional.ofNullable(MAPPINGS.get(value));
+	}
 }
