@@ -54,7 +54,7 @@ traceability:
   url: "https://traceability.int.demo.catena-x.net"
 
 datasource:
-  url: jdbc:postgresql://product-traceability-foss-backend-postgresql:5432/trace
+  url: jdbc:postgresql://traceability-foss-backend-postgresql:5432/trace
   username: trace
   password: <path:traceability-foss/data/int/database#tracePassword>
 
@@ -67,10 +67,14 @@ oauth2:
 
 edc:
   apiKey: "<path:traceability-foss/data/int/edc/controlplane#edc.api.control.auth.apikey.value>"
-  providerUrl: "https://trace-x-edc.dev.demo.catena-x.net"
+  providerUrl: "https://tracex-consumer-controlplane.int.demo.catena-x.net"
 
 postgresql:
   enabled: true
+
+  nameOverride: "traceability-foss-backend-postgresql"
+  fullnameOverride: "traceability-foss-backend-postgresql"
+
   auth:
     postgresPassword: "<path:traceability-foss/data/int/database#postgresPassword>"
     password: "<path:traceability-foss/data/int/database#tracePassword>"
