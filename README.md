@@ -11,6 +11,8 @@
 [![VeraCode](https://github.com/eclipse-tractusx/traceability-foss-backend/actions/workflows/veracode.yaml/badge.svg)](https://github.com/eclipse-tractusx/traceability-foss-backend/actions/workflows/veracode.yaml)
 [![Eclipse DASH IP Check](https://github.com/eclipse-tractusx/traceability-foss-backend/actions/workflows/eclipse-dash.yml/badge.svg)](https://github.com/eclipse-tractusx/traceability-foss-backend/actions/workflows/eclipse-dash.yml)
 
+# DEPRECATED
+This is no longer supported, please consider using https://github.com/catenax-ng/tx-traceability-foss instead.
 
 ## What is TRACE-FOSS?
 

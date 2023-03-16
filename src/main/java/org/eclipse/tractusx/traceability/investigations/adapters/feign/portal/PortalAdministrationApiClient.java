@@ -19,48 +19,21 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-package org.eclipse.tractusx.traceability.investigations.domain.model
+package org.eclipse.tractusx.traceability.investigations.adapters.feign.portal;
 
-import org.eclipse.tractusx.traceability.common.model.BPN
-import spock.lang.Specification
+import feign.RequestLine;
+import org.eclipse.tractusx.traceability.assets.infrastructure.config.openapi.CatenaApiConfig;
+import org.springframework.cloud.openfeign.FeignClient;
 
-import java.time.Instant
+import java.util.List;
 
-abstract class InvestigationBaseSpec extends Specification {
+@FeignClient(
+	name = "portalApi",
+	url = "${feign.portalApi.url}",
+	configuration = {CatenaApiConfig.class}
+)
+public interface PortalAdministrationApiClient {
 
-	protected Investigation senderInvestigationWithStatus(BPN bpn, InvestigationStatus status) {
-		return investigationWithStatus(bpn, status, InvestigationSide.SENDER)
-	}
-
-	protected Investigation receiverInvestigationWithStatus(BPN bpn, InvestigationStatus status) {
-		return investigationWithStatus(bpn, status, InvestigationSide.RECEIVER)
-	}
-
-	protected Investigation investigationWithStatus(BPN bpn, InvestigationStatus status, InvestigationSide side) {
-		return new Investigation(
-			new InvestigationId(1L),
-			bpn,
-			status,
-			side,
-			"",
-			"",
-			"",
-			"",
-			Instant.now(),
-			[],
-			[
-			    new Notification(
-					"1",
-					null,
-					bpn.value(),
-					bpn.value(),
-					null,
-					null,
-					"",
-					status,
-					[]
-				)
-			]
-		)
-	}
+	@RequestLine("POST /administration/connectors/discovery")
+	List<ConnectorDiscoveryMappingResponse> getConnectorEndpointMappings(List<String> bpns);
 }

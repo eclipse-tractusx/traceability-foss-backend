@@ -21,6 +21,10 @@
 
 package org.eclipse.tractusx.traceability.common.config;
 
+import org.springframework.core.env.Environment;
+
+import java.util.Arrays;
+
 public class ApplicationProfiles {
 
 	public static final String TESTS = "integration";
@@ -29,5 +33,10 @@ public class ApplicationProfiles {
 	public static final String INT = "int";
 
 	private ApplicationProfiles() {
+	}
+
+	public static boolean doesNotContainTestProfile(Environment environment) {
+		return Arrays.stream(environment.getActiveProfiles())
+			.noneMatch(profile -> profile.equals(TESTS));
 	}
 }

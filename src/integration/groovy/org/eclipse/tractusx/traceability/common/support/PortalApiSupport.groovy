@@ -19,37 +19,26 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-package org.eclipse.tractusx.traceability.assets
+package org.eclipse.tractusx.traceability.common.support
 
+import org.springframework.http.HttpHeaders
 
-import org.eclipse.tractusx.traceability.assets.domain.model.Asset
-import org.eclipse.tractusx.traceability.assets.domain.model.QualityType
+import static com.xebialabs.restito.builder.stub.StubHttp.whenHttp
+import static com.xebialabs.restito.semantics.Action.header
+import static com.xebialabs.restito.semantics.Action.ok
+import static com.xebialabs.restito.semantics.Condition.post
+import static com.xebialabs.restito.semantics.Condition.withHeader
 
-class AssetFacadeSpec extends AssetsSpec {
+trait PortalApiSupport implements RestitoProvider {
 
-	def "should return assets country map"() {
-		given:
-			assetRepository.getAssets() >> [
-				newAsset("DEU"),
-				newAsset("DEU"),
-				newAsset("DEU"),
-				newAsset("POL"),
-				newAsset("POL"),
-				newAsset("ITA"),
-				newAsset("FRA"),
-			]
-
-		when:
-			Map<String, Long> countryMap = assetFacade.getAssetsCountryMap()
-
-		then:
-			countryMap["DEU"] == 3
-			countryMap["POL"] == 2
-			countryMap["ITA"] == 1
-			countryMap["FRA"] == 1
-	}
-
-    Asset newAsset(String country) {
-		new Asset(null, null, null, null, null, null, null, null, null, null, null, country, true, null, false, QualityType.OK, null)
+	void portalAdministrationReturnsRegisteredConnectorEndpoints() {
+		whenHttp(stubServer()).match(
+			post("/administration/connectors/discovery"),
+			withHeader(HttpHeaders.AUTHORIZATION)
+		).then(
+			ok(),
+			header("Content-Type", "application/json"),
+			jsonResponseFromFile("./stubs/portal/post/administration/connectors/discovery/response_200.json")
+		)
 	}
 }

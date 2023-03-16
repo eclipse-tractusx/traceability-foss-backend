@@ -19,30 +19,9 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-package org.eclipse.tractusx.traceability.investigations.adapters.feign;
-
-import feign.Param;
-import feign.RequestLine;
-import org.eclipse.tractusx.traceability.assets.infrastructure.config.openapi.CatenaApiConfig;
-import org.springframework.cloud.openfeign.FeignClient;
+package org.eclipse.tractusx.traceability.investigations.adapters.feign.portal;
 
 import java.util.List;
 
-@FeignClient(
-	name = "sdHubApi",
-	url = "${feign.sdHubApi.url}",
-	configuration = {CatenaApiConfig.class}
-)
-public interface SdHubApiClient {
-
-	@RequestLine("GET /selfdescription/by-params")
-	GetSdHubResponse getSelfDescriptions(
-		@Param(value = "id") List<String> ids,
-		@Param(value = "companyNumbers") List<String> companyNumbers,
-		@Param(value = "headquarterCountries") List<String> headquarterCountries,
-		@Param(value = "legalCountries") List<String> legalCountries,
-		@Param(value = "serviceProviders") List<String> serviceProviders,
-		@Param(value = "sdTypes") List<String> sdTypes,
-		@Param(value = "bpns") List<String> bpns
-	);
+public record ConnectorDiscoveryMappingResponse(String bpn, List<String> connectorEndpoint) {
 }
