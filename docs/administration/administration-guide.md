@@ -146,54 +146,52 @@ The OAuth2, Vault configuration / secrets depend on your setup and might need to
 
 #### Helm configuration Trace-X Backend (values.yaml)
 
-      enabled: true #<healthCheck.enabled>
-
     traceability:
-      bpn: <traceability.bpn>
-      url: <traceability.url>
+      bpn: "CHANGEME" #<traceability.bpn>
+      url: "" #<traceability.url>
 
     datasource:
-      url: <datasource.url>
-      username: <datasource.username>
-      password: <datasource.password>
+      url: jdbc:postgresql://tracex-backend-postgresql:5432/trace
+      username: trace
+      password: "CHANGEME" #<datasource.password>
 
     oauth2:
-      clientId: <oauth2.clientId>
-      clientSecret: <oauth2.clientSecret>
-      clientTokenUri: <oauth2.clientTokenUri>
-      jwkSetUri: <oauth2.jwkSetUri>
-      resourceClient: <oauth2.resourceClient>
+      clientId: "CHANGEME" #<oauth2.clientId>
+      clientSecret: "CHANGEME" #<oauth2.clientSecret>
+      clientTokenUri: "https://changeme.com" #<oauth2.clientTokenUri>
+      jwkSetUri: "https://changeme.com" #<oauth2.jwkSetUri>
+      resourceClient: "CHANGEME" #<oauth2.resourceClient>
 
     edc:
-      apiKey: <edc.apiKey>
-      providerUrl: <edc.providerUrl>
+      apiKey: "" #<edc.apiKey>
+      providerUrl: "" #<edc.providerUrl>
 
     postgresql:
-      enabled: false #<postgresql.enabled>
+      enabled: true
+
+      nameOverride: "tracex-backend-postgresql"
+      fullnameOverride: "tracex-backend-postgresql"
+
       auth:
-        postgresPassword: <postgresql.auth.postgresPassword>
-        password: <postgresql.auth.password>
-        database: <postgresql.auth.database>
-        username: <postgresql.auth.username>
-      architecture: standalone
-      audit:
-        pgAuditLog: write, ddl
-        logLinePrefix: "%m %u %d "
+        postgresPassword: "CHANGEME" #<postgresql.auth.postgresPassword>
+        password: "CHANGEME" #postgresql.auth.password>
+        database: "trace"
+        username: "trace"
+
+    pgadmin4:
+      enabled: false #<pgadmin4.enabled>
+      ingress:
+        enabled: false  #<pgadmin4.ingress.enabled>
 
     global:
       enablePrometheus: false  #<global.enablePrometheus>
       enableGrafana: false  #<global.enableGrafana>
 
     irs-helm:
-      enabled: false  #<irs-helm.enabled>
+      enabled: false #<irs-helm.enabled>
 
     irs-edc-consumer:
-      enabled: false
-
-    pgadmin4:
-      enabled: false  #<pgadmin4.enabled>
-      ingress:
-        enabled: false  #<pgadmin4.ingress.enabled>
+      enabled: false #<irs-edc-consumer.enabled>
 
 ##### Values explained
 
@@ -330,4 +328,4 @@ Troubleshooting
 
 Coming soon…​
 
-Last updated 2023-02-24 12:31:13 UTC
+Last updated 2023-03-16 12:24:54 UTC
