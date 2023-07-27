@@ -1,0 +1,6 @@
+product: "Traceability-FOSS-Backend"
+leadingRepository: "https://github.com/eclipse-tractusx/traceability-foss-backend"
+repositories:
+- name: "traceability-foss-backend"
+  usage: "reference implementation of Traceability-FOSS-Backend"
+  url: "https://github.com/eclipse-tractusx/traceability-foss-backend"
